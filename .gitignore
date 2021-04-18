@@ -244,3 +244,6 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+
+Assets/Mirror/*
+Assets/ScriptTemplates/*

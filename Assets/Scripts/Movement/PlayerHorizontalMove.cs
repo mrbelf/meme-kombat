@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(IGetXInput))]
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class PlayerHorizontalMove : MonoBehaviour
+public class PlayerHorizontalMove : Mirror.NetworkBehaviour
 {
     #region Fields
     [SerializeField] private float speed = 2f;
@@ -25,7 +25,8 @@ public class PlayerHorizontalMove : MonoBehaviour
 
     private void Update()
     {
-        rb.velocity = new Vector2(xInput.GetXInput() * speed, rb.velocity.y);
+        if (isLocalPlayer)
+            rb.velocity = new Vector2(xInput.GetXInput() * speed, rb.velocity.y);
     }
     #endregion Monobehaviour Methods
 }
