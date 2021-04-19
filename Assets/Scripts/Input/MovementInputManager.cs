@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class MovementInputManager : MonoBehaviour, IGetJumpInput, IGetXInput
+public class MovementInputManager : MonoBehaviour, IGetJumpInput, IGetXInput, IGetPunchInput
 {
     public bool GetJumpDown()
     {
-        return Input.GetKeyDown(KeyCode.Space);
+        return Input.GetKeyDown(KeyCode.C);
     }
 
     public bool GetJump()
     {
-        return Input.GetKey(KeyCode.Space);
+        return Input.GetKey(KeyCode.C);
     }
 
     public float GetXInput()
@@ -21,5 +21,15 @@ public class MovementInputManager : MonoBehaviour, IGetJumpInput, IGetXInput
             return 0f;
 
         return left ? -1f : 1f;
+    }
+
+    public bool GetPunchDown()
+    {
+        return Input.GetKeyDown(KeyCode.X);
+    }
+
+    public bool GetPunch()
+    {
+        return Input.GetKey(KeyCode.X);
     }
 }
