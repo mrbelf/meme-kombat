@@ -29,10 +29,10 @@ public class AnimationManager : MonoBehaviour
     {
         bool walking = Mathf.Abs(m_rb.velocity.x) > .1f;
         m_animator.SetBool("Walking",walking);
-        if (walking) 
-        {
-            m_sr.flipX = m_rb.velocity.x < 0;
-        }
+        //if (walking) 
+        //{
+        //    m_sr.flipX = m_rb.velocity.x < 0;
+        //}
     }
 
     private void OnPunchEvent() 
