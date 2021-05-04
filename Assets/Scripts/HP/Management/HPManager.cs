@@ -17,8 +17,8 @@ public class HPManager : NetworkBehaviour
     }
     #endregion Singleton
     [SerializeField] int maxHP = 100;
-    [SerializeField] int hp1 = 100;
-    [SerializeField] int hp2 = 100;
+    [SerializeField] [SyncVar] int hp1 = 100;
+    [SerializeField] [SyncVar] int hp2 = 100;
 
     public UnityEvent<int,int> HpUpdateEvent = new UnityEvent<int,int>();
 
@@ -33,6 +33,14 @@ public class HPManager : NetworkBehaviour
         {
             hp2 -= amount;
         }
+        HpUpdateEvent.Invoke(hp1,hp2);
+
+        UpdateHPOnClients();
+    }
+
+    [Command]
+    private void UpdateHPOnClients() 
+    {
         HpUpdateEvent.Invoke(hp1,hp2);
     }
 
