@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Kermit-i
+  m_Name: kermit-i
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -21,15 +21,17 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: 3af0b04f5060c6a4895fa05e92bd3432, type: 3}
-    - time: 0.21666667
+    - time: 0.11666667
       value: {fileID: 21300000, guid: 1c75670252c3b0c47871a549a70b69ba, type: 3}
-    - time: 0.43333334
+    - time: 0.21666667
       value: {fileID: 21300000, guid: ee86aaad44e4a0b4abcff6c9f324d2b7, type: 3}
-    - time: 0.6333333
+    - time: 0.3
       value: {fileID: 21300000, guid: 2496b292ee9a80c4d9fe0679e4ad8b3c, type: 3}
-    - time: 0.85
+    - time: 0.41666666
+      value: {fileID: 21300000, guid: a2149ce5da89bd04e88e70826fe3b986, type: 3}
+    - time: 0.51666665
       value: {fileID: 21300000, guid: 8150b3a86a8e06a45abf3310f766ea69, type: 3}
-    - time: 1.0666667
+    - time: 0.6333333
       value: {fileID: 21300000, guid: a03801cd968ee2b478a5b5c7754b9b4b, type: 3}
     attribute: m_Sprite
     path: 
@@ -54,6 +56,7 @@ AnimationClip:
     - {fileID: 21300000, guid: 1c75670252c3b0c47871a549a70b69ba, type: 3}
     - {fileID: 21300000, guid: ee86aaad44e4a0b4abcff6c9f324d2b7, type: 3}
     - {fileID: 21300000, guid: 2496b292ee9a80c4d9fe0679e4ad8b3c, type: 3}
+    - {fileID: 21300000, guid: a2149ce5da89bd04e88e70826fe3b986, type: 3}
     - {fileID: 21300000, guid: 8150b3a86a8e06a45abf3310f766ea69, type: 3}
     - {fileID: 21300000, guid: a03801cd968ee2b478a5b5c7754b9b4b, type: 3}
   m_AnimationClipSettings:
@@ -61,7 +64,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0833334
+    m_StopTime: 0.65
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
