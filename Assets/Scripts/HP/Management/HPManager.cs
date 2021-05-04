@@ -22,7 +22,7 @@ public class HPManager : NetworkBehaviour
 
     public UnityEvent<int,int> HpUpdateEvent = new UnityEvent<int,int>();
 
-    [ServerCallback]
+    [ClientRpc]
     public void TakeDamage(int amount, bool player1) 
     {
         if (player1)
@@ -35,13 +35,6 @@ public class HPManager : NetworkBehaviour
         }
         HpUpdateEvent.Invoke(hp1,hp2);
 
-        UpdateHPOnClients();
-    }
-
-    [Command]
-    private void UpdateHPOnClients() 
-    {
-        HpUpdateEvent.Invoke(hp1,hp2);
     }
 
     public void ResetHP() 

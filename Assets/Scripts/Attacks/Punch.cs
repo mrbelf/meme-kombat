@@ -8,6 +8,14 @@ using Mirror;
 public class Punch : NetworkBehaviour
 {
     [SerializeField] int damageAmount;
+    private static bool gamb = false;
+    bool gambLocal;
+
+    private void Awake()
+    {
+        gambLocal = gamb;
+        gamb = !gamb;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,7 +26,7 @@ public class Punch : NetworkBehaviour
             if (hpManager != null) 
             {
                 Debug.Log("Hit hpManager");
-                hpManager.TakeDamage(damageAmount, isServer);    
+                hpManager.TakeDamage(damageAmount, gambLocal);    
             }
         }
     }
