@@ -8,6 +8,8 @@ public class HPManager : NetworkBehaviour
 {
     #region Singleton
     public static HPManager Instance;
+    [SerializeField] private GameObject looserPopup;
+    [SerializeField] private GameObject winnerPopup;
     private void Awake()
     {
         if (Instance)
@@ -35,6 +37,19 @@ public class HPManager : NetworkBehaviour
         }
         HpUpdateEvent.Invoke(hp1,hp2);
 
+        if (hp1 <= 0 || hp2 <= 0) 
+        {
+            if (hp1 <= 0)
+            {
+                winnerPopup.SetActive(!IsHostHolder.isHost);
+                looserPopup.SetActive(IsHostHolder.isHost);
+            }
+            else 
+            {
+                winnerPopup.SetActive(IsHostHolder.isHost);
+                looserPopup.SetActive(!IsHostHolder.isHost);
+            }
+        }
     }
 
     public void ResetHP() 
