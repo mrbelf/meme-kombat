@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     private SpriteRenderer sr;
+    private Rigidbody2D rb;
     private Transform otherPlayer;
 
     public void Init(Transform otherPlayer)
@@ -17,11 +18,12 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        float Xscale = (otherPlayer.position.x > transform.position.x) ? 1f : -1f ;
-        transform.localScale = new Vector3(Xscale,1);
+        if (Mathf.Abs(rb.velocity.x) > 0.1)
+            transform.localScale = new Vector3((rb.velocity.x < 0) ? -1:1, 1) ;
     }
 }
