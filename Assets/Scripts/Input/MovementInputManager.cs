@@ -1,19 +1,23 @@
 using UnityEngine;
+using Mirror;
 
-public class MovementInputManager : MonoBehaviour, IGetJumpInput, IGetXInput, IGetPunchInput
+public class MovementInputManager : NetworkBehaviour, IGetJumpInput, IGetXInput, IGetPunchInput
 {
     public bool GetJumpDown()
     {
-        return Input.GetKeyDown(KeyCode.C);
+        return Input.GetKeyDown(KeyCode.C) && isLocalPlayer;
     }
 
     public bool GetJump()
     {
-        return Input.GetKey(KeyCode.C);
+        return Input.GetKey(KeyCode.C) && isLocalPlayer;
     }
 
     public float GetXInput()
     {
+        if (!isLocalPlayer)
+            return 0;
+
         var left = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A);
         var right = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
 
@@ -25,11 +29,11 @@ public class MovementInputManager : MonoBehaviour, IGetJumpInput, IGetXInput, IG
 
     public bool GetPunchDown()
     {
-        return Input.GetKeyDown(KeyCode.X);
+        return Input.GetKeyDown(KeyCode.X) && isLocalPlayer;
     }
 
     public bool GetPunch()
     {
-        return Input.GetKey(KeyCode.X);
+        return Input.GetKey(KeyCode.X) && isLocalPlayer;
     }
 }

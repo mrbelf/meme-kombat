@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class HPBar : MonoBehaviour
 {
-    private Image bar;
+    [SerializeField]private Image bar1;
+    [SerializeField]private Image bar2;
     private int maxHP;
 
     private void Start()
     {
-        bar = GetComponent<Image>();
-        var hpManager = HPManager.GetInstance();
+        var hpManager = HPManager.Instance;
         maxHP = hpManager.GetMaxtHP();
         hpManager.HpUpdateEvent.AddListener(UpdateHP);
     }
 
-    private void UpdateHP(int currentHP) 
+    private void UpdateHP(int hp1,int hp2) 
     {
-        bar.fillAmount = currentHP / (float)maxHP; 
+        bar1.fillAmount = hp1 / (float)maxHP;
+        bar2.fillAmount = hp2 / (float)maxHP;
     }
 }

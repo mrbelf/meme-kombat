@@ -1,28 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using Core.Utility.SingletonPattern;
+using System;
+using Mirror;
 
-public class HPManager : Singleton<HPManager>
+
+public class HPManager : NetworkBehaviour
 {
-    [SerializeField] int maxHP = 100;
-    [SerializeField] int currentHP = 100;
-
-    public UnityEvent<int> HpUpdateEvent = new UnityEvent<int>();
-
-    public void TakeDamage(int amount) 
+    #region Singleton
+    public static HPManager Instance;
+    private void Awake()
     {
-        currentHP -= amount;
-        HpUpdateEvent.Invoke(currentHP);
+        if (Instance)
+            Destroy(this);
+        else
+            Instance = this;
+    }
+    #endregion Singleton
+    [SerializeField] int maxHP = 100;
+    [SerializeField] int hp1 = 100;
+    [SerializeField] int hp2 = 100;
+
+    public UnityEvent<int,int> HpUpdateEvent = new UnityEvent<int,int>();
+
+    [ServerCallback]
+    public void TakeDamage(int amount, bool player1) 
+    {
+        if (player1)
+        {
+            hp1 -= amount;
+        }
+        else 
+        {
+            hp2 -= amount;
+        }
+        HpUpdateEvent.Invoke(hp1,hp2);
     }
 
     public void ResetHP() 
     {
-        currentHP = maxHP;
-        HpUpdateEvent.Invoke(currentHP);
+        hp1 = hp2 = maxHP;
+        HpUpdateEvent.Invoke(hp1,hp2);
     }
 
-    public int GetCurrentHP() => currentHP;
+    public Tuple<int,int> GetCurrentHP() => new Tuple<int, int>(hp1,hp2);
     public int GetMaxtHP() => maxHP;
 }
