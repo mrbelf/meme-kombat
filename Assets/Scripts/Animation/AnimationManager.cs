@@ -17,6 +17,8 @@ public class AnimationManager : NetworkBehaviour
     private PunchManager m_pm;
     private NetworkAnimator m_na;
 
+    [SyncVar] public int controllerIndex;
+
     private void Start()
     {
         m_animator = GetComponent<Animator>();
@@ -27,6 +29,8 @@ public class AnimationManager : NetworkBehaviour
         m_pm = GetComponent<PunchManager>();
         m_pm.PunchEvent.AddListener(OnPunchEvent);
         m_na = GetComponent<NetworkAnimator>();
+
+        m_animator.runtimeAnimatorController = CharSelector.GetInstance().chars[controllerIndex];
     }
 
     [ClientCallback]
