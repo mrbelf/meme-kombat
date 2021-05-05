@@ -49,6 +49,7 @@ public class HPManager : NetworkBehaviour
                 winnerPopup.SetActive(IsHostHolder.isHost);
                 looserPopup.SetActive(!IsHostHolder.isHost);
             }
+            ResetHP();
         }
     }
 

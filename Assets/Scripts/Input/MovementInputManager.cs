@@ -13,6 +13,11 @@ public class MovementInputManager : NetworkBehaviour, IGetJumpInput, IGetXInput,
         return Input.GetKey(KeyCode.C) && isLocalPlayer;
     }
 
+    public bool GetSpecial() 
+    {
+        return Input.GetKeyDown(KeyCode.Z) && isLocalPlayer;
+    }
+
     public float GetXInput()
     {
         if (!isLocalPlayer)
