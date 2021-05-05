@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: 31e2dfb1994b9304c8cecb5390c750c3, type: 2}
     - target: {fileID: 6683767331274217520, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_Name
-      value: Elon (1)
+      value: Kermit
       objectReference: {fileID: 0}
     - target: {fileID: 6683767331274217526, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_RootOrder
@@ -37,11 +37,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6683767331274217526, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.95
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 6683767331274217526, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.04
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6683767331274217526, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_LocalPosition.z

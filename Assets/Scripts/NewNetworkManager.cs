@@ -161,7 +161,7 @@ public class NewNetworkManager : NetworkManager
     /// <param name="conn">Connection from client.</param>
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
-        playerPrefab = CharSelector.GetInstance().selected;
+        //playerPrefab = CharSelector.GetInstance().selected;
         playerPrefab.transform.position = new Vector3(!IsHostHolder.isHost ? 3f :-3f,-1);
         base.OnServerAddPlayer(conn);
     }
@@ -188,6 +188,12 @@ public class NewNetworkManager : NetworkManager
     public override void OnClientConnect(NetworkConnection conn)
     {
         base.OnClientConnect(conn);
+        CreateMMOCharacterMessage characterMessage = new CreateMMOCharacterMessage
+        {
+            prefabIndex = CharSelector.GetInstance().selected
+        };
+
+        conn.Send(characterMessage);
     }
 
     /// <summary>
@@ -225,7 +231,24 @@ public class NewNetworkManager : NetworkManager
     /// This is invoked when a server is started - including when a host is started.
     /// <para>StartServer has multiple signatures, but they all cause this hook to be called.</para>
     /// </summary>
-    public override void OnStartServer() { }
+    public struct CreateMMOCharacterMessage : NetworkMessage
+    {
+        public int prefabIndex;
+    }
+    public override void OnStartServer() 
+    {
+        base.OnStartServer(); 
+        NetworkServer.RegisterHandler<CreateMMOCharacterMessage>(OnCreateCharacter);
+    }
+    void OnCreateCharacter(NetworkConnection conn, CreateMMOCharacterMessage message)
+    {
+        // playerPrefab is the one assigned in the inspector in Network
+        // Manager but you can use different prefabs per race for example
+        GameObject gameobject = Instantiate(playerPrefab);
+        gameobject.GetComponent<Animator>().runtimeAnimatorController = CharSelector.GetInstance().chars[message.prefabIndex];
+        NetworkServer.AddPlayerForConnection(conn, gameobject);
+    }
+
 
     /// <summary>
     /// This is invoked when the client is started.

@@ -5,12 +5,12 @@ using Core.Utility.SingletonPattern;
 
 public class CharSelector : Singleton<CharSelector>
 {
-    public GameObject [] chars;
-    public GameObject selected;
+    public RuntimeAnimatorController [] chars;
+    public int selected;
 
     public void Select(int i)
     {
-        selected = chars[i];
+        selected = i;
     }
 }
 

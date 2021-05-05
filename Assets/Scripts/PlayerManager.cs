@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        //GetComponent<Animator>().runtimeAnimatorController = CharSelector.GetInstance().selected;
     }
 
     private void Update()
