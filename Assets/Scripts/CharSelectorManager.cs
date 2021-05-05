@@ -8,5 +8,6 @@ public class CharSelectorManager : MonoBehaviour
     {
         CharSelector.GetInstance().Select(i);
         this.gameObject.SetActive(false);
+        FindObjectOfType<NewNetworkManager>().Init();
     }
 }

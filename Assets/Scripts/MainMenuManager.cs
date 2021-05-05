@@ -11,6 +11,17 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private string steamId;
     [SerializeField] private GameObject fieldPanel;
     [SerializeField] private GameObject gameModePanel;
+    [SerializeField] private GameObject otherIdPanel;
+    [SerializeField] TMP_InputField otherIdField;
+    [SerializeField] private string otherSteamId;
+
+    ConnectionMode mode;
+
+    public enum ConnectionMode 
+    {
+        Client = 0,
+        Host = 1
+    }
 
     private void Start()
     {
@@ -30,8 +41,52 @@ public class MainMenuManager : MonoBehaviour
         gameModePanel.SetActive(true);
     }
 
+    public void OnClientButton() 
+    {
+        SelectMode(ConnectionMode.Client);
+    }
+
+    public void OnHostButton() 
+    {
+        SelectMode(ConnectionMode.Host);
+    }
+
+    public void SelectMode(ConnectionMode mode) 
+    {
+        this.mode = mode;
+        if (mode == ConnectionMode.Client)
+        {
+            otherIdPanel.SetActive(true);
+        }
+        else 
+        {
+            ApplySettings();
+            LoadGameScene();
+        }
+    }
+
+    public void SetOtherId() 
+    {
+        otherSteamId = otherIdField.text;
+        ApplySettings();
+        LoadGameScene();
+    }
+
+    private void LoadGameScene()
+    {
+        SceneManager.LoadScene(gameSceneName);
+    }
+
     public void GoToGameScene() 
     {
         SceneManager.LoadScene(gameSceneName);
+    }
+
+    public void ApplySettings() 
+    {
+        var msh = MultiplayerSettingsHolder.GetInstance();
+        msh.playerId = this.steamId;
+        msh.otherId = this.otherSteamId;
+        msh.mode = (MultiplayerSettingsHolder.ConnectionMode)this.mode;
     }
 }

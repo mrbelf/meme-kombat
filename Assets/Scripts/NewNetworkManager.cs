@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Mirror;
+using Mirror.FizzySteam;
 
 /*
 	Documentation: https://mirror-networking.com/docs/Components/NetworkManager.html
@@ -22,7 +23,22 @@ public class NewNetworkManager : NetworkManager
     /// </summary>
     public override void Awake()
     {
+        var fs = GetComponent<FizzySteamworks>();
+        fs.SteamUserID = ulong.Parse(MultiplayerSettingsHolder.GetInstance().playerId);
         base.Awake();
+    }
+
+    public void Init()
+    {
+        if (MultiplayerSettingsHolder.GetInstance().mode == MultiplayerSettingsHolder.ConnectionMode.Host)
+        {
+            StartHost();
+        }
+        else
+        {
+            networkAddress = MultiplayerSettingsHolder.GetInstance().otherId;
+            StartClient();
+        }
     }
 
     /// <summary>
