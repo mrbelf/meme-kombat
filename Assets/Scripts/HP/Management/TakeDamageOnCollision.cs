@@ -7,5 +7,6 @@ public class TakeDamageOnCollision : NetworkBehaviour, ITakeDamage
     public void TakeDamage(int amount, bool player)
     {
         HPManager.Instance.TakeDamage(amount,player);
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(transform.localScale.x,2));
     }
 }
