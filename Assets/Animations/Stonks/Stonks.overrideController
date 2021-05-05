@@ -6,16 +6,16 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Kermit
+  m_Name: Stonks
   m_Controller: {fileID: 9100000, guid: ddc7b0b0103a6a54983544a1015e7bed, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: a6375a983cf4cfc4fb97128754acda6a, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 639e4d4ef354c0a43993fc62eb7020df, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 19824f7976071cd41be6662dee41f611, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: d95c6474c82af1844bc27f5491c2a68d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0edefe86eedb7e442bf47e9116704859, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a6375a983cf4cfc4fb97128754acda6a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fca4f06d71410ba4ea11bd5852e15e31, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 91a4da24b56362040b0bb104c11109d1, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 531b29b65ca782346916941e3e2641a0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: eea360e7b7c8b4c4f9a311ea0b8f9b46, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 1a261f5b463ea634dabc2eaaec381554, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 7301599b13bf27a409c07a52573ebfff, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8becfb983fc375c4d930a5cd2334fea8, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 620048ae01566484b973d622261bf48c, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 6b93ac313fde9a04188fa959663866e3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 561d62a0c431486468dc4108ba458893, type: 2}
