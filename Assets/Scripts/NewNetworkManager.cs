@@ -245,7 +245,8 @@ public class NewNetworkManager : NetworkManager
         // playerPrefab is the one assigned in the inspector in Network
         // Manager but you can use different prefabs per race for example
         GameObject gameobject = Instantiate(playerPrefab);
-        gameObject.GetComponent<AnimationManager>().controllerIndex = message.prefabIndex;
+        AnimationManager animator = gameobject.GetComponent<AnimationManager>();
+        animator.controllerIndex = message.prefabIndex;
         NetworkServer.AddPlayerForConnection(conn, gameobject);
     }
 

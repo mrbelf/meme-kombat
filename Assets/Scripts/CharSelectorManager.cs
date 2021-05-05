@@ -8,6 +8,9 @@ public class CharSelectorManager : MonoBehaviour
     public TMP_InputField otherIdField;
     public NewNetworkManager nnm;
 
+    public GameObject gameOver;
+    public GameObject youWin;
+
     public void SelectChar(int i) 
     {
         CharSelector.GetInstance().Select(i);
@@ -36,6 +39,8 @@ public class CharSelectorManager : MonoBehaviour
 
     public void OnBack() 
     {
+        gameOver.SetActive(false);
+        youWin.SetActive  (false);
         if(MultiplayerSettingsHolder.GetInstance().mode == MultiplayerSettingsHolder.ConnectionMode.Client)
             nnm.StopClient();
         else
