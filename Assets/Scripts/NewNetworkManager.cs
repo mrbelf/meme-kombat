@@ -162,6 +162,7 @@ public class NewNetworkManager : NetworkManager
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
         playerPrefab = CharSelector.GetInstance().selected;
+        playerPrefab.transform.position = new Vector3(!IsHostHolder.isHost ? 3f :-3f,-1);
         base.OnServerAddPlayer(conn);
     }
 

@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: fd9898493dcc6fa4796fd28762c2a136, type: 2}
     - target: {fileID: 6683767331274217520, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_Name
-      value: Elon (1)
+      value: Buffcat
       objectReference: {fileID: 0}
     - target: {fileID: 6683767331274217526, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_RootOrder
@@ -37,11 +37,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6683767331274217526, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.6753645
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 6683767331274217526, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.0375657
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6683767331274217526, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_LocalPosition.z

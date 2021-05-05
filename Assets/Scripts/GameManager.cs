@@ -13,8 +13,6 @@ public class GameManager : NetworkBehaviour
         var nnm = FindObjectOfType<NewNetworkManager>();
         nnm.StopHost();
         nnm.OnStopClient();
-        Destroy(nnm.gameObject);
-        Destroy(FindObjectOfType<SteamManager>().gameObject);
         SceneManager.LoadScene(mainMenuSceneName);
     }
 }

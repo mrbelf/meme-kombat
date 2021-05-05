@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: 8c44d8dcfe5aa324e964265fcc8e08fd, type: 2}
     - target: {fileID: 6683767331274217520, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_Name
-      value: Elon (1)
+      value: Stonks
       objectReference: {fileID: 0}
     - target: {fileID: 6683767331274217526, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_RootOrder
@@ -37,11 +37,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6683767331274217526, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.69
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 6683767331274217526, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.6398253
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6683767331274217526, guid: 33f257db9240bab46905f501aca689ca, type: 3}
       propertyPath: m_LocalPosition.z

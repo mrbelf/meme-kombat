@@ -26,7 +26,7 @@ public class MainMenuManager : MonoBehaviour
     private void Start()
     {
         fieldPanel.SetActive(false);
-        gameModePanel.SetActive(false);
+        //gameModePanel.SetActive(false);
     }
 
     public void OnPlayButton() 
@@ -37,8 +37,10 @@ public class MainMenuManager : MonoBehaviour
     public void OnSetSteamID() 
     {
         steamId = field.text;
-        fieldPanel.SetActive(false);
-        gameModePanel.SetActive(true);
+        //fieldPanel.SetActive(false);
+        //gameModePanel.SetActive(true);
+        ApplySettings();
+        SceneManager.LoadScene(gameSceneName);
     }
 
     public void OnClientButton() 
@@ -65,6 +67,11 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    public void OnExitButton() 
+    {
+        Application.Quit();
+    }
+
     public void SetOtherId() 
     {
         otherSteamId = otherIdField.text;
@@ -86,7 +93,7 @@ public class MainMenuManager : MonoBehaviour
     {
         var msh = MultiplayerSettingsHolder.GetInstance();
         msh.playerId = this.steamId;
-        msh.otherId = this.otherSteamId;
-        msh.mode = (MultiplayerSettingsHolder.ConnectionMode)this.mode;
+       // msh.otherId = this.otherSteamId;
+       // msh.mode = (MultiplayerSettingsHolder.ConnectionMode)this.mode;
     }
 }

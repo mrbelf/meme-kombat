@@ -1,13 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CharSelectorManager : MonoBehaviour
 {
+    public TMP_InputField otherIdField;
+    public NewNetworkManager nnm;
+
     public void SelectChar(int i) 
     {
         CharSelector.GetInstance().Select(i);
+    }
+
+    public void SelectHost()
+    {
+        MultiplayerSettingsHolder.GetInstance().mode = MultiplayerSettingsHolder.ConnectionMode.Host;
+
+        nnm.Init();
         this.gameObject.SetActive(false);
-        FindObjectOfType<NewNetworkManager>().Init();
+    }
+    public void SelectClient()
+    {
+        MultiplayerSettingsHolder.GetInstance().otherId = otherIdField.text;
+        MultiplayerSettingsHolder.GetInstance().mode = MultiplayerSettingsHolder.ConnectionMode.Client;
+
+        nnm.Init();
+        this.gameObject.SetActive(false);
+    }
+
+    public void StartGame() 
+    {
+        nnm.Init();
+    }
+
+    public void OnBack() 
+    {
+        if(MultiplayerSettingsHolder.GetInstance().mode == MultiplayerSettingsHolder.ConnectionMode.Client)
+            nnm.StopClient();
+        else
+            nnm.StopHost();
+        gameObject.SetActive(true);
     }
 }
